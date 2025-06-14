@@ -873,3 +873,95 @@ hr{
         font-size: 0.9em;
     }
 }
+ .our-team-header {
+            background-color: var(--our-team-primary-bg);
+            padding: 40px 20px;
+            text-align: center;
+            border-bottom: 1px solid var(--our-team-border-color);
+        }
+
+        .our-team-header h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.5em;
+            color: var(--our-team-dark-text);
+            margin: 0;
+        }
+
+        /* Styles for the main container holding all team member cards (Grid layout) */
+        .our-team-container {
+            background-color: var(--our-team-secondary-bg);
+            padding: 40px 20px;
+            display: grid;
+            gap: 30px; /* Space between cards */
+            /* This creates a responsive grid: 
+               - Each column will be at least 300px wide.
+               - It will fit as many columns as possible (auto-fit).
+               - 1fr means columns will take equal available space. */
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+            max-width: 1200px; /* Max width for the whole team section */
+            margin: 0 auto; /* Center the grid container on the page */
+        }
+
+        /* Styles for each individual team member card */
+        .our-team-member-card {
+            background-color: #FFFFFF;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08); /* Subtle shadow for depth */
+            display: flex; /* Use flexbox to center content vertically */
+            flex-direction: column; /* Stack items vertically within the card */
+            align-items: center; /* Center content horizontally within the card */
+            text-align: center; /* Center text by default, overridden for paragraph */
+            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out; /* Smooth hover effect */
+        }
+
+        .our-team-member-card:hover {
+            transform: translateY(-5px); /* Lift effect on hover */
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12); /* Enhanced shadow on hover */
+        }
+
+        /* Styles for the team member's image */
+        .our-team-member-card img {
+            width: 150px; /* Fixed width for the image */
+            height: 150px; /* Fixed height for the image */
+            border-radius: 50%; /* Makes the image perfectly circular */
+            object-fit: cover; /* Ensures image covers the area without distortion */
+            margin-bottom: 20px; /* Space below the image */
+            border: 3px solid var(--our-team-accent-color); /* Small border for visual pop */
+        }
+
+        /* Styles for the team member's name */
+        .our-team-member-card h2 {
+            font-size: 1.6em;
+            margin: 0 0 5px 0; /* Adjust spacing */
+            color: var(--our-team-accent-color); /* Highlight name with accent color */
+        }
+
+        /* Styles for the team member's designation (FCA, CS, etc.) */
+        .our-team-member-card .our-team-member-designation {
+            font-size: 0.95em;
+            color: var(--our-team-light-text);
+            margin-bottom: 15px; /* Space below the designation */
+        }
+
+        /* Styles for the team member's bio paragraph */
+        .our-team-member-card p {
+            font-size: 0.9em;
+            color: var(--our-team-dark-text);
+            text-align: left; /* Align bio text left for better readability */
+            margin-bottom: 0; /* No bottom margin if it's the last element in the card */
+        }
+
+        /* Responsive adjustments for smaller screens (e.g., tablets and mobile) */
+        @media (max-width: 768px) {
+            .our-team-header h1 {
+                font-size: 2em; /* Smaller title on mobile */
+            }
+            .our-team-container {
+                grid-template-columns: 1fr; /* On small screens, stack cards in a single column */
+                padding: 20px; /* Adjust padding for mobile */
+            }
+            .our-team-member-card {
+                padding: 25px; /* Slightly less padding on mobile cards */
+            }
+        }
