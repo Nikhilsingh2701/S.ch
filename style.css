@@ -965,3 +965,284 @@ hr{
                 padding: 25px; /* Slightly less padding on mobile cards */
             }
         }
+
+
+
+
+/* gallery */
+
+
+.gallery-section {
+    padding: 60px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+/* Gallery Header */
+.gallery-header h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2.8em;
+    color: #2c3e50; /* Dark blue/grey */
+    margin-bottom: 10px;
+}
+
+.gallery-header p {
+    font-size: 1.1em;
+    color: #555;
+    margin-bottom: 40px;
+}
+
+/* Filter Buttons */
+.gallery-filters {
+    margin-bottom: 40px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap; /* Allow buttons to wrap on smaller screens */
+    gap: 10px;
+}
+
+.filter-button {
+    background-color: #eee;
+    color: #555;
+    border: 1px solid #ccc;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+.filter-button:hover {
+    background-color: #ddd;
+    color: #333;
+}
+
+.filter-button.active {
+    background-color: #007BFF; /* Accent color */
+    color: #fff;
+    border-color: #007BFF;
+}
+
+/* Gallery Grid */
+.gallery-grid {
+    display: grid;
+    /* Responsive columns: 
+       - auto-fit: fills available space with as many columns as fit
+       - minmax(280px, 1fr): each column is at least 280px, otherwise takes equal fraction */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px; /* Space between grid items */
+}
+
+/* Individual Gallery Item */
+.gallery-item {
+    position: relative;
+    overflow: hidden; /* Important for image border-radius and overlay */
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.gallery-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 250px; /* Fixed height for consistent grid rows */
+    object-fit: cover; /* Crops images to fit without distortion */
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.05); /* Slight zoom on hover */
+}
+
+/* Gallery Item Overlay (on hover) */
+.gallery-item-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 123, 255, 0.7); /* Accent color with opacity */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0; /* Hidden by default */
+    transition: opacity 0.3s ease;
+}
+
+.gallery-item:hover .gallery-item-overlay {
+    opacity: 1; /* Visible on hover */
+}
+
+.gallery-item-title {
+    color: #fff;
+    font-size: 1.3em;
+    font-weight: 600;
+    text-align: center;
+    padding: 10px;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+/* Hidden items for filtering */
+.gallery-item.hidden {
+    display: none;
+}
+
+/* Lightbox/Modal Styles */
+.lightbox-overlay {
+    display: none; /* Hidden by default */
+    position: fixed;
+    z-index: 1000; /* High z-index to appear above everything */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8); /* Dark semi-transparent background */
+    backdrop-filter: blur(5px); /* Optional: blur background for modern look */
+    justify-content: center;
+    align-items: center;
+}
+
+.lightbox-content {
+    position: relative;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+    max-width: 90vw;
+    max-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.lightbox-close {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    color: #fff; /* Close button color */
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+    background: #333;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    line-height: 1;
+    transition: background-color 0.3s;
+}
+
+.lightbox-close:hover {
+    background-color: #555;
+}
+
+
+.lightbox-image {
+    max-width: 100%;
+    max-height: calc(90vh - 100px); /* Adjust based on caption height */
+    display: block;
+    object-fit: contain; /* Ensures entire image is visible */
+    margin: 0 auto;
+}
+
+.lightbox-caption {
+    color: #333;
+    font-size: 1.1em;
+    margin-top: 15px;
+    text-align: center;
+    font-weight: 600;
+}
+
+.lightbox-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    font-size: 2em;
+    cursor: pointer;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.3s;
+}
+
+.lightbox-nav:hover {
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.lightbox-prev {
+    left: 20px;
+}
+
+.lightbox-next {
+    right: 20px;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .gallery-header h1 {
+        font-size: 2.2em;
+    }
+    .gallery-header p {
+        font-size: 1em;
+    }
+    .gallery-grid {
+        gap: 15px;
+    }
+    .gallery-item img {
+        height: 200px; /* Shorter height on smaller screens */
+    }
+    .lightbox-nav {
+        font-size: 1.5em;
+        width: 40px;
+        height: 40px;
+        padding: 5px 10px;
+    }
+    .lightbox-prev {
+        left: 5px;
+    }
+    .lightbox-next {
+        right: 5px;
+    }
+}
+
+@media (max-width: 480px) {
+    .gallery-section {
+        padding: 30px 10px;
+    }
+    .gallery-grid {
+        grid-template-columns: 1fr; /* Single column on very small screens */
+    }
+    .gallery-item img {
+        height: auto; /* Auto height for single column to maintain aspect ratio */
+    }
+    .filter-button {
+        padding: 8px 15px;
+        font-size: 0.9em;
+    }
+    .lightbox-close {
+        font-size: 30px;
+        width: 30px;
+        height: 30px;
+        top: 5px;
+        right: 10px;
+    }
+}

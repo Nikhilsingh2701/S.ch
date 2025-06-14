@@ -48,6 +48,101 @@
             <li><a href="contactus.html">Contact</a></li>
         </ul>
     </nav>
+
+     <section class="gallery-section">
+        <div class="gallery-header">
+            <h1>Our Company Gallery</h1>
+            <p>Explore moments, projects, and behind-the-scenes glimpses of our journey.</p>
+        </div>
+
+        <div class="gallery-filters">
+            <button class="filter-button active" data-filter="all">All</button>
+            <button class="filter-button" data-filter="events">Events</button>
+            <button class="filter-button" data-filter="projects">Projects</button>
+            <button class="filter-button" data-filter="office">Office Life</button>
+            <button class="filter-button" data-filter="team">Team</button>
+        </div>
+
+        <div class="gallery-grid">
+            <!-- Gallery Item 1 (Example) -->
+            <div class="gallery-item" data-category="events">
+                <img src="images/audit.png" alt="Company Annual Meetup">
+                <div class="gallery-item-overlay">
+                    <span class="gallery-item-title">Annual Meetup 2023</span>
+                </div>
+            </div>
+
+            <!-- Gallery Item 2 -->
+            <div class="gallery-item" data-category="projects">
+                <img src="images/banking.jpg" alt="Project Alpha Completion">
+                <div class="gallery-item-overlay">
+                    <span class="gallery-item-title">Project Alpha</span>
+                </div>
+            </div>
+
+            <!-- Gallery Item 3 -->
+            <div class="gallery-item" data-category="office">
+                <img src="images/careers.jpg" alt="Our Modern Office Space">
+                <div class="gallery-item-overlay">
+                    <span class="gallery-item-title">Office Interior</span>
+                </div>
+            </div>
+
+            <!-- Gallery Item 4 -->
+            <div class="gallery-item" data-category="team">
+                <img src="images/consult.jpg" alt="Our Dynamic Team">
+                <div class="gallery-item-overlay">
+                    <span class="gallery-item-title">Team Building</span>
+                </div>
+            </div>
+
+            <!-- Gallery Item 5 -->
+            <div class="gallery-item" data-category="events">
+                <img src="images/fibre.jpg" alt="Industry Seminar">
+                <div class="gallery-item-overlay">
+                    <span class="gallery-item-title">Industry Seminar</span>
+                </div>
+            </div>
+
+            <!-- Gallery Item 6 -->
+            <div class="gallery-item" data-category="projects">
+                <img src="images/food.jpg" alt="Project Beta Launch">
+                <div class="gallery-item-overlay">
+                    <span class="gallery-item-title">Project Beta</span>
+                </div>
+            </div>
+
+            <!-- Gallery Item 7 -->
+            <div class="gallery-item" data-category="office">
+                <img src="images/insurance.jpg" alt="Meeting Room Setup">
+                <div class="gallery-item-overlay">
+                    <span class="gallery-item-title">Collaborative Space</span>
+                </div>
+            </div>
+
+            <!-- Gallery Item 8 -->
+            <div class="gallery-item" data-category="team">
+                <img src="images/media.jpg" alt="Team Fun Day">
+                <div class="gallery-item-overlay">
+                    <span class="gallery-item-title">Team Fun Day</span>
+                </div>
+            </div>
+
+            <!-- Add more gallery items as needed -->
+        </div>
+    </section>
+
+    <!-- Lightbox/Modal Structure (Initially hidden) -->
+    <div class="lightbox-overlay" id="lightbox">
+        <div class="lightbox-content">
+            <span class="lightbox-close">&times;</span>
+            <img src="" alt="Enlarged Gallery Image" class="lightbox-image">
+            <div class="lightbox-caption"></div>
+            <button class="lightbox-nav lightbox-prev">&#10094;</button>
+            <button class="lightbox-nav lightbox-next">&#10095;</button>
+        </div>
+    </div>
+
     
 
     <footer class="site-footer">
